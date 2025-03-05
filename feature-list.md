@@ -15,7 +15,8 @@ This document contains a list of all the features that are either planned, under
     - **Spec Document**: [admin-dashboard-spec.md](features/feature-001/spec.md)
 
 - **Feature-002**: Developing and managing the git management system.
-    - **Status**: Active
+    - **Status**: Completed 
     - **Branch**: `d/feature-002`
     - **Description**: This feature is focused on creating and managing the version control rules and the git workflow.
     - **Spec Document**: [spec.md](features/feature-002/spec.md)
+    - **Completion Date**: 2025-03-05
