@@ -7,7 +7,7 @@ This document contains a list of all the features that are either planned, under
 
 ---
 
-## Active Features
+## Features
 - **Feature-001**: Administering new features and specifications.
     - **Status**: Active
     - **Branch**: `d/feature-001`
