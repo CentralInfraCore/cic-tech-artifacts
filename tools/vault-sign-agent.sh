@@ -6,7 +6,6 @@
 # See https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 set -e
-set -x
 
 KEYFILE=""
 KEY_NAME="cic-my-sign-key"
@@ -58,6 +57,7 @@ if [[ "$STOP" == "1" ]]; then
   fi
   exit 0
 fi
+
 
 if [[ -f $XDG_RUNTIME_DIR/vault/vault.pid ]]; then
   echo "[!] vault.pid file found – is Vault running? First stop the vault"
@@ -163,7 +163,7 @@ echo "[*] Vault PID: $VAULT_PID"
 echo "[*] Certificate: $VAULT_CERT"
 echo "[*] Stop Vault: $0 --stop"
 
-trap "rm -rf $TMPDIR" EXIT
+#trap "rm -rf $TMPDIR" EXIT
 
 # ---
 # This script is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
