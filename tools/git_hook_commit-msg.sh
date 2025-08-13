@@ -38,11 +38,9 @@ trap 'rm -rf "$tmpdir"' EXIT
 
 # Kibontjuk, majd determinisztikus tar streamet készítünk
 git archive --format=tar "$TREE_ID" | tar -xf - -C "$tmpdir"
-TAR_STREAM=$(tar --sort=name --mtime='UTC 1970-01-01' \
-  --owner=0 --group=0 --numeric-owner -cf - -C "$tmpdir" .)
-
-# Hash → base64 (Vault inputhoz)
-DIGEST_B64=$(printf "%s" "$TAR_STREAM" | openssl dgst -sha256 -binary | openssl base64 -A)
+tar --sort=name --mtime='UTC 1970-01-01' \
+  --owner=0 --group=0 --numeric-owner -cf - -C "$tmpdir" . \
+  | openssl dgst -sha256 -binary | openssl base64 -A)
 
 # ===== Vault aláírás =====
 SIGNATURE=$(vault write -format=json "transit/sign/$KEY_NAME" \
