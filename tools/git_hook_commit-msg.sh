@@ -38,7 +38,7 @@ trap 'rm -rf "$tmpdir"' EXIT
 
 # Kibontjuk, majd determinisztikus tar streamet készítünk
 git archive --format=tar "$TREE_ID" | tar -xf - -C "$tmpdir"
-tar --sort=name --mtime='UTC 1970-01-01' \
+DIGEST_B64=$(tar --sort=name --mtime='UTC 1970-01-01' \
   --owner=0 --group=0 --numeric-owner -cf - -C "$tmpdir" . \
   | openssl dgst -sha256 -binary | openssl base64 -A)
 
