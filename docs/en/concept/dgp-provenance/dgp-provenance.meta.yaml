@@ -1,0 +1,20 @@
+id: doc://en/concept/dgp-provenance@v1
+title: "Deterministic Graph Provenance (DGP)"
+language: en
+status: review
+version: 1.0.0
+owner: team://cic-core
+tags: [provenance, supply-chain, signing, graph, canon, sha256]
+summary: >
+  DGP ensures every node carries a verifiable provenance chain via the triad:
+  canonicalization → sha256 → detached signature → attestation.
+related_nodes:
+  - schema://provenance/manifest@v1
+  - schema://provenance/attestation@v1
+  - module://cic/verify/attest@v1
+  - policy://graph/namespace-allowlist@v1
+provenance:
+  anchors:
+    - hash://sha256/def456def456def456def456def456def456def456def456def456def456
+    - sig://vault-transit/team-cic-core
+    - attest://slsa-light/run-2025-09-27
