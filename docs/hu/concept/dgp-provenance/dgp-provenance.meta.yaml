@@ -1,0 +1,21 @@
+id: doc://hu/concept/dgp-provenance@v1
+title: "Determinista Gráf Eredetiség (DGP)"
+language: hu
+status: review
+version: 1.0.0
+owner: team://cic-core
+tags: [eredet, ellátásilánc, aláírás, gráf, canon, sha256]
+summary: >
+  A DGP a kanonizálás → sha256 → leválasztott aláírás → attesztáció triádján keresztül
+  biztosítja, hogy minden csomópont verifikálható eredetlánccal rendelkezzen.
+related_nodes:
+  - schema://provenance/manifest@v1
+  - schema://provenance/attestation@v1
+  - module://cic/verify/attest@v1
+  - policy://graph/namespace-allowlist@v1
+provenance:
+  anchors:
+    # Helyettesítsd a tényleges, kanonizált tartalom hashével és frissítsd a sign/attest lépéseket a CI-ban.
+    - hash://sha256/abc123abc123abc123abc123abc123abc123abc123abc123abc123abc123
+    - sig://vault-transit/team-cic-core
+    - attest://slsa-light/run-2025-09-27
